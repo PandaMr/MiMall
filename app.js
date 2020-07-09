@@ -1,3 +1,3 @@
 var a = 1;
 var b = 2;
-var c = 'panda';
+var c = '3';
