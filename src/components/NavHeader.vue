@@ -1,6 +1,8 @@
 <template>
-    <div>
-        NavHeader
+    <div class="header">
+        <div class="nav-header">
+            
+        </div>
     </div>
 </template>
 

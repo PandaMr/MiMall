@@ -8,8 +8,33 @@
 export default {
   data(){
     return {
-
+      res: {},
+      name: 'panda'
     }
+  },
+  mounted(){
+    // 本地mockjs搭建API
+    this.axios.get('/api/user/login').then((res)=>{
+      this.res = res.data;
+      console.log(this.res);
+    });
+    //在线API数据模拟 
+    this.axios.get('https://easydoc.xyz/mock/EZSa5oYu/p/86669362/product/123').then((res)=>{
+      console.log(res.data);
+    })
+  
+    // this.axios({
+    //   url: 'https://easydoc.xyz/mock/EZSa5oYu/p/86669362/product/123',
+    //   method: "GET",
+    //   header:{
+    //     "Access-Control-Allow-Origin":"*"
+    //   },
+    //   data:{
+
+    //   }
+    // }).then((res)=>{
+    //   console.log(res);
+    // })
   }
 }
 </script>
