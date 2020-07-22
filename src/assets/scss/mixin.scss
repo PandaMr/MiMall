@@ -1,0 +1,12 @@
+// flex 布局复用 默认两端对齐  上下居中
+
+@mixin flex($justify:space-between,$align:center){
+    display: flex;
+    flex-direction: row;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin color(){
+    color: red;
+}

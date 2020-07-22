@@ -19,9 +19,9 @@ export default {
       console.log(this.res);
     });
     //在线API数据模拟 
-    this.axios.get('https://easydoc.xyz/mock/EZSa5oYu/p/86669362/product/123').then((res)=>{
-      console.log(res.data);
-    })
+    // this.axios.get('https://easydoc.xyz/mock/EZSa5oYu/p/86669362/product/123').then((res)=>{
+    //   console.log(res.data);
+    // })
   
     // this.axios({
     //   url: 'https://easydoc.xyz/mock/EZSa5oYu/p/86669362/product/123',

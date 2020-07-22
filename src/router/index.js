@@ -10,6 +10,7 @@ import OrderList from '../views/orderList'
 import OrderConfirm from '../views/orderConfirm'
 import OrderPay from '../views/orderPay'
 import Alipay from '../views/alipay'
+import Login from '../views/login'
 
 
 Vue.use(VueRouter)
@@ -23,7 +24,7 @@ Vue.use(VueRouter)
     children:[
       {
         path: '/index',
-        name: 'index',
+        name: 'Index',
         component: Index
       },
       {
@@ -37,6 +38,11 @@ Vue.use(VueRouter)
         component: Detail
       }
     ]
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
     path: '/cart',
