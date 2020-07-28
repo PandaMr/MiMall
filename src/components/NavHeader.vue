@@ -34,7 +34,7 @@
             <li v-for="(item,index) in menuList" :key="index">
               <a href="javascript:;">
                 <div class="child-box">
-                  <img v-bind:src="item.img" />
+                  <img v-lazy="item.img" />
                   <p class="menu-img-text">{{item.name}}</p>
                   <p class="price">{{item.price}}元</p>
                 </div>
@@ -206,7 +206,7 @@ export default {
       .menu-item {
         // height: 100px;
         &:hover {
-            color: #000000;
+            
             .menu-child{
               height: 220px;
               opacity: 1;
@@ -218,7 +218,9 @@ export default {
           font-weight: bold;
           color: #333333;
           padding: 0 10px;
-          
+          &:hover{
+            @include color();
+          }
         }
         .menu-child {
           position: absolute;
@@ -246,7 +248,7 @@ export default {
                 color: #333;
               }
               .price{
-                color:#000000;
+                color: $color-brand;
               }
             }
             &:before{

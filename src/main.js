@@ -4,10 +4,16 @@ import axios from 'axios'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import VueLazyload from 'vue-lazyload'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
+
+Vue.use(VueLazyload, {
+  loading: './assets/images/loading.svg'
+})
+
 const mock = true;
 if(mock){
   require('./mock/api.js')

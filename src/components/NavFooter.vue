@@ -24,11 +24,11 @@ export default {
     .footer {
         width: 100%;
         border-top: 1px #e5e5e5 solid;
-        margin-top: 10px;
         color: #333333;
         .container{
             width: 1226px;
             margin: 0 auto;
+            padding-top: 20px;
             .logo{
                 img{
                     width: 100px;

@@ -7,6 +7,16 @@
     align-items: $align;
 }
 
-@mixin color(){
-    color: red;
+@mixin position($position:relative, $top:0, $left:0, $width:0,$height:0){
+    position: $position;
+    top: $top;
+    left: $left;
+    width: $width;
+    height: $height;
 }
+
+@mixin color(){
+    color: #096759;
+}
+
+$color-brand: #096759;
