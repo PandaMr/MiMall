@@ -13,11 +13,14 @@ export default {
     }
   },
   mounted(){
-    // 本地mockjs搭建API
-    this.axios.get('/api/user/login').then((res)=>{
-      this.res = res.data;
-      console.log(this.res);
-    });
+    // 保持登录状态
+    this.$store.dispatch('saveUsername', window.localStorage.getItem("username")); 
+    // 获取购物车数量
+    this.axios.get('/cart/count').then((res)=>{
+      console.log(res.data.count);
+      this.$store.dispatch('saveCartCount', res.data.count);
+    })
+
     //在线API数据模拟 
     // this.axios.get('https://easydoc.xyz/mock/EZSa5oYu/p/86669362/product/123').then((res)=>{
     //   console.log(res.data);

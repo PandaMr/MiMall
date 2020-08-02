@@ -27,7 +27,7 @@
         <div class="product-item" v-for="(product,i) in productList" :key="i">
           <div class="product-info" v-for="(item,j) in product" :key="j">
             <div class="product-img">
-              <img :src="item.img" />
+              <a v-bind:href="'/product/'+item.id" ><img :src="item.img" /></a>
             </div>
             <p class="title">{{item.title}}</p>
             <p class="introduce">{{item.introduce}}</p>

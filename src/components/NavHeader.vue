@@ -3,7 +3,7 @@
     <div class="container">
       <div class="nav-header">
         <div class="nav-header-left">
-          <a href="#">熊猫纸业</a>
+          <a href="/index">熊猫纸业</a>
           <a href="#">生活用品</a>
           <a href="#">婴儿系列</a>
           <a href="#">成人系列</a>
@@ -12,12 +12,13 @@
         <div class="nav-header-right">
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="username">我的订单</a>
-          <a href="javascript:;" @click="login()" v-if="!username">登录</a>
+          <a href="javascript:;" v-if="username" @click="clearUser()">退出</a>
+          <a href="/login" v-if="!username">登录</a>
           <a href="#" v-if="!username">注册</a>
           <a href="#" v-if="!username">访客浏览</a>
           <div class="cart" @click="cart">
             <img src="../assets/images/cart.png" alt="购物车" width="20" />
-            <span>购物车 (0)</span>
+            <span>购物车 ({{cartCount}})</span>
           </div>
         </div>
       </div>
@@ -112,41 +113,77 @@
 export default {
   name: "nav-header",
   data() {
+    
     return {
-      username: "",
+      // username: this.$store.state.username,
       menuList: [
         {
           id: 10,
           name: "本色纸",
           img: require("@/assets/images/menu-img-1.png"),
-          price: "¥29.00"
-        },{
+          price: "¥29.00",
+        },
+        {
           id: 11,
           name: "干湿两用",
           img: require("@/assets/images/menu-img-1.png"),
-          price: "¥29.00"
-        },{
+          price: "¥29.00",
+        },
+        {
           id: 12,
           name: "白色纸",
           img: require("@/assets/images/menu-img-1.png"),
-          price: "¥29.00"
-        },{
+          price: "¥29.00",
+        },
+        {
           id: 13,
           name: "速溶纸",
           img: require("@/assets/images/menu-img-1.png"),
-          price: "¥29.00"
-        }
-      ]
+          price: "¥29.00",
+        },
+      ],
     };
   },
-  methods: {
-    login() {
-      this.$router.push("/login");
+  mounted() {
+    this.init();
+  },
+  computed: {
+    username() {
+      return this.$store.state.username;
+      //  // 用户名存储到localStorage中
+      // window.localStorage.setItem("username", this.$store.state.username);
+      // // 从localSrorage获取用户名
+      // return window.localStorage.getItem("username");
     },
+    cartCount(){
+      return this.$store.state.cartCount;
+    },
+    clearUser() {
+      window.localStorage.removeItem("username");
+      // this.username = '';
+      this.$store.state.username = '';
+      this.$message({
+        showClose: true,
+        message: "已退出！",
+        type: "success",
+      });
+    }
+
+  },
+  methods: {
     cart() {
       this.$router.push("/cart");
-    }
-  }
+    },
+    init() {
+      // // 用户名存储到localStorage中
+      // window.localStorage.setItem("username", this.$store.state.username);
+      // // 从localSrorage获取用户名
+      // this.username = window.localStorage.getItem("username");
+      
+    },
+    
+    
+  },
 };
 </script>
 <style lang="scss">
@@ -206,19 +243,18 @@ export default {
       .menu-item {
         // height: 100px;
         &:hover {
-            
-            .menu-child{
-              height: 220px;
-              opacity: 1;
-            }
+          .menu-child {
+            height: 220px;
+            opacity: 1;
           }
+        }
         .menu-title {
           display: inline-block;
           font-size: 16px;
           font-weight: bold;
           color: #333333;
           padding: 0 10px;
-          &:hover{
+          &:hover {
             @include color();
           }
         }
@@ -231,11 +267,11 @@ export default {
           opacity: 0;
           overflow: hidden;
           border-top: 1px #e5e5e5 solid;
-          box-shadow:  0px 5px 5px -5px #999;
+          box-shadow: 0px 5px 5px -5px #999;
           background-color: #ffffff;
           transition: all 0.5s;
           z-index: 9;
-          @include flex(flex-start,center);
+          @include flex(flex-start, center);
           li {
             position: relative;
             width: 200px;
@@ -244,14 +280,14 @@ export default {
               img {
                 width: 100px;
               }
-              .menu-img-text{
+              .menu-img-text {
                 color: #333;
               }
-              .price{
+              .price {
                 color: $color-brand;
               }
             }
-            &:before{
+            &:before {
               content: " ";
               position: absolute;
               right: 0;
@@ -259,7 +295,7 @@ export default {
               height: 100px;
               width: 1px;
             }
-            &:last-child:before{
+            &:last-child:before {
               border: none;
             }
           }
