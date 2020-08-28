@@ -59,13 +59,19 @@ export default {
             //  // 用户名存储到localStorage中
             window.localStorage.setItem("username", username);
             // 登录成功后将用户名存储到Vuex中
-            this.$store.dispatch('saveUsername', username);
+            this.$store.dispatch("saveUsername", username);
+            // 获取购物车数量
+            this.axios.get("/cart/count").then((res) => {
+              console.log(res.data.count);
+              this.$store.dispatch("saveCartCount", res.data.count);
+              window.localStorage.setItem('cartCount', res.data.count);
+            });
             // 调转到首页
             this.$router.push("/index");
             this.$message({
               showClose: true,
               message: "登录成功",
-              type: "success"
+              type: "success",
             });
           } else {
             // alert(res.data.data.msg);

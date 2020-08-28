@@ -18,7 +18,7 @@
           <a href="#" v-if="!username">访客浏览</a>
           <div class="cart" @click="cart">
             <img src="../assets/images/cart.png" alt="购物车" width="20" />
-            <span>购物车 ({{cartCount}})</span>
+            <span>购物车 ({{cartCount || 0}})</span>
           </div>
         </div>
       </div>
@@ -162,12 +162,15 @@ export default {
       window.localStorage.removeItem("username");
       // this.username = '';
       this.$store.state.username = '';
+      this.$store.dispatch('saveCartCount', 0);
+      window.localStorage.removeItem("cartCount");
       this.$message({
         showClose: true,
         message: "已退出！",
         type: "success",
       });
     }
+    
 
   },
   methods: {
@@ -180,7 +183,7 @@ export default {
       // // 从localSrorage获取用户名
       // this.username = window.localStorage.getItem("username");
       
-    },
+    }
     
     
   },
