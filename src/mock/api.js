@@ -11,6 +11,7 @@ const user = [
   },
 ];
 
+// 产品列表
 Mock.mock("/product/list", "get", {
   status: 200,
   data: {
@@ -94,6 +95,7 @@ Mock.mock("/product/list", "get", {
   },
 });
 
+// 用户登录 
 Mock.mock("/login", "post", (config) => {
   let data = JSON.parse(config.body);
   // 判断用户名或密码
@@ -118,6 +120,7 @@ Mock.mock("/login", "post", (config) => {
   };
 });
 
+// 购物车数量 api
 Mock.mock('/cart/count', {
   status: 200,
   count: 2
