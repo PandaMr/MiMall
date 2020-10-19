@@ -56,7 +56,7 @@ export default {
           console.log(res.data);
           if (res.data.status == 200) {
             let username = res.data.data.username;
-            //  // 用户名存储到localStorage中
+            // 用户名存储到localStorage中
             window.localStorage.setItem("username", username);
             // 登录成功后将用户名存储到Vuex中
             this.$store.dispatch("saveUsername", username);

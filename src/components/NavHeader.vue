@@ -44,7 +44,7 @@
           </ul>
         </div>
         <div class="menu-item">
-          <a href="#" class="menu-title">卫生巾</a>
+          <a href="#" class="menu-title">湿巾系列</a>
           <ul class="menu-child">
             <li v-for="(item,index) in menuList" :key="index">
               <a href="javascript:;">

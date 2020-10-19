@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  // 共享状态 对象
+  // 共享状态 对象（数据结构设计）
   state: {
     username: '',
     cartCount: 0
