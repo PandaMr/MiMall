@@ -29,6 +29,7 @@ export default {
             width: 1226px;
             margin: 0 auto;
             padding-top: 20px;
+            padding-bottom: 30px;
             .logo{
                 img{
                     width: 100px;

@@ -63,6 +63,7 @@ export default {
             // 获取购物车数量
             this.axios.get("/cart/count").then((res) => {
               console.log(res.data.count);
+              // 购物车数量的商品存入vuex中
               this.$store.dispatch("saveCartCount", res.data.count);
               window.localStorage.setItem('cartCount', res.data.count);
             });

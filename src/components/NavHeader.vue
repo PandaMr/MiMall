@@ -113,7 +113,6 @@
 export default {
   name: "nav-header",
   data() {
-    
     return {
       // username: this.$store.state.username,
       menuList: [
@@ -160,10 +159,10 @@ export default {
     },
     clearUser() {
       window.localStorage.removeItem("username");
+      window.localStorage.removeItem("cartCount");
       // this.username = '';
       this.$store.state.username = '';
       this.$store.dispatch('saveCartCount', 0);
-      window.localStorage.removeItem("cartCount");
       this.$message({
         showClose: true,
         message: "已退出！",
