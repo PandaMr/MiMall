@@ -23,7 +23,7 @@
   "devDependencies": {
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-plugin-vuex": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-service": "~5.0.8",
     "axios": "^0.19.2",
     "element-ui": "^2.13.2",
     "jsonp": "^0.2.1",
